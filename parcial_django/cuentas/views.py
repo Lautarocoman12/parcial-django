@@ -21,7 +21,8 @@ def registro(request):
             )
 
             messages.success(request, 'Usuario creado correctamente. Revisa tu correo.')
-            return redirect('login')  # Ajustá según tu URL
+            return redirect('cuentas:login')
+  # Ajustá según tu URL
     else:
         form = RegistroForm()
     return render(request, 'cuentas/registro.html', {'form': form})
@@ -43,7 +44,8 @@ def login_view(request):
 
 def logout_view(request):
     logout(request)
-    return redirect('login')
+    return redirect('cuentas:login')  # ✅ con namespace
+
 
 from django.contrib.auth.decorators import login_required
 
