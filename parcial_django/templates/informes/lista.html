@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block title %}Lista de Informes{% endblock %}
+
+{% block content %}
+<h2>Lista de informes</h2>
+<p>Acá podrías mostrar los PDFs generados o el historial de envíos.</p>
+<a href="{% url 'alumnos:dashboard' %}" class="btn btn-secondary">Volver al Dashboard</a>
+{% endblock %}

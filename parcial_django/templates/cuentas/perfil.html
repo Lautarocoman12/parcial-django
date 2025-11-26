@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Mi perfil</h2>
+<p>Usuario: {{ request.user.username }}</p>
+<p>Email: {{ request.user.email }}</p>
+<a href="{% url 'alumnos:dashboard' %}" class="btn btn-secondary">Volver al Dashboard</a>
+{% endblock %}

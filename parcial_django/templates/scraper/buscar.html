@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Scraper</h2>
+<form method="post" class="mb-3">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Buscar</button>
+</form>
+
+{% if resultados %}
+<h3>Resultados encontrados</h3>
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Link</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for r in resultados %}
+        <tr>
+            <td>{{ r.titulo }}</td>
+            <td><a href="{{ r.link }}" target="_blank">{{ r.link }}</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<p class="text-success">✅ También se envió un CSV con los resultados a tu correo.</p>
+{% endif %}
+{% endblock %}
